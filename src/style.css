@@ -1,4 +1,4 @@
-/* ─── Design Tokens & Theme ─────────────────────────────────── */
+﻿/* â”€â”€â”€ Design Tokens & Theme â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --bg-base: #060713;
   --surface-card: rgba(12, 17, 30, 0.78);
@@ -36,7 +36,7 @@
   --shadow-neon-cyan: 0 0 28px rgba(0, 229, 255, 0.3);
 }
 
-/* ─── Base Styles ────────────────────────────────────────────── */
+/* â”€â”€â”€ Base Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 html {
   height: 100%;
   cursor: default;
@@ -101,7 +101,7 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
-/* ─── Vice City Atmospheric Backdrop ────────────────────────── */
+/* â”€â”€â”€ Vice City Atmospheric Backdrop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .vc-backdrop {
   position: fixed;
   inset: 0;
@@ -114,7 +114,7 @@ select:focus-visible {
 .vc-backdrop-img {
   position: absolute;
   inset: -30px;
-  background-image: url("/cover.png");
+  background-image: url("/tommy.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,7 +126,7 @@ select:focus-visible {
 
 @media (min-width: 1024px) {
   .vc-backdrop-img {
-    background-position: 70% 18%;
+    background-position: center 25%;
     opacity: 0.42;
   }
 }
@@ -184,7 +184,7 @@ select:focus-visible {
   }
 }
 
-/* ─── Main Landing Layout ────────────────────────────────────── */
+/* â”€â”€â”€ Main Landing Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .start-container {
   position: relative;
   z-index: 10;
@@ -194,7 +194,7 @@ select:focus-visible {
   box-sizing: border-box;
 }
 
-/* ─── Site Navigation Header ─────────────────────────────────── */
+/* â”€â”€â”€ Site Navigation Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .site-header {
   display: flex;
   align-items: center;
@@ -288,7 +288,7 @@ select:focus-visible {
   }
 }
 
-/* ─── Language Switcher ──────────────────────────────────────── */
+/* â”€â”€â”€ Language Switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .lang-switcher {
   display: flex;
   align-items: center;
@@ -345,7 +345,7 @@ select:focus-visible {
   pointer-events: none;
 }
 
-/* ─── Hero Section ───────────────────────────────────────────── */
+/* â”€â”€â”€ Hero Section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-banner {
   text-align: left;
   margin-bottom: 32px;
@@ -421,7 +421,7 @@ select:focus-visible {
   border: 1px solid rgba(0, 229, 255, 0.2);
 }
 
-/* ─── Main Grid Layout ───────────────────────────────────────── */
+/* â”€â”€â”€ Main Grid Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .main-layout-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr);
@@ -443,7 +443,7 @@ select:focus-visible {
   gap: 22px;
 }
 
-/* ─── Deck Cards (Frosted Glass Panels) ──────────────────────── */
+/* â”€â”€â”€ Deck Cards (Frosted Glass Panels) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .deck-card {
   background: var(--surface-card);
   backdrop-filter: blur(24px) saturate(140%);
@@ -496,7 +496,7 @@ select:focus-visible {
   color: var(--text-muted);
 }
 
-/* ─── Setup Overlay & Storage Status ─────────────────────────── */
+/* â”€â”€â”€ Setup Overlay & Storage Status â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .storage-status {
   display: inline-flex;
   align-items: center;
@@ -545,7 +545,7 @@ select:focus-visible {
   box-shadow: 0 0 6px #ffaa00;
 }
 
-/* ─── Setup Actions Panel ────────────────────────────────────── */
+/* â”€â”€â”€ Setup Actions Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .setup-actions-panel {
   display: flex;
   flex-direction: column;
@@ -666,7 +666,7 @@ select:focus-visible {
   display: none !important;
 }
 
-/* ─── Setup Progress Bar ─────────────────────────────────────── */
+/* â”€â”€â”€ Setup Progress Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .setup-progress {
   margin-top: 18px;
   padding: 16px;
@@ -729,7 +729,7 @@ select:focus-visible {
   font-size: 0.88rem;
 }
 
-/* ─── Quick Launch Strip (Cheats & Start Button) ─────────────── */
+/* â”€â”€â”€ Quick Launch Strip (Cheats & Start Button) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .launch-strip {
   display: flex;
   flex-direction: column;
@@ -863,7 +863,7 @@ select:focus-visible {
   box-shadow: none;
 }
 
-/* ─── User Data Accordions (Saves & Skins) ───────────────────── */
+/* â”€â”€â”€ User Data Accordions (Saves & Skins) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .drawers-stack {
   display: flex;
   flex-direction: column;
@@ -1020,7 +1020,7 @@ details[open] .drawer-chevron {
   color: var(--text-dim);
 }
 
-/* ─── Engine Config Panel ────────────────────────────────────── */
+/* â”€â”€â”€ Engine Config Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .config-panel {
   padding: 18px 22px;
 }
@@ -1055,7 +1055,7 @@ details[open] .drawer-chevron {
   font-size: 0.85rem;
 }
 
-/* ─── Right Column: Features Grid ────────────────────────────── */
+/* â”€â”€â”€ Right Column: Features Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1109,7 +1109,7 @@ details[open] .drawer-chevron {
   margin: 0;
 }
 
-/* ─── Instructions Panel (How to Play) ───────────────────────── */
+/* â”€â”€â”€ Instructions Panel (How to Play) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .instructions-panel {
   text-align: left;
 }
@@ -1156,7 +1156,7 @@ details[open] .drawer-chevron {
   justify-content: center;
 }
 
-/* ─── Disclaimer ─────────────────────────────────────────────── */
+/* â”€â”€â”€ Disclaimer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .disclaimer {
   font-size: 0.82rem;
   line-height: 1.65;
@@ -1176,7 +1176,7 @@ details[open] .drawer-chevron {
   display: none !important;
 }
 
-/* ─── Mobile Viewport Adaptations ────────────────────────────── */
+/* â”€â”€â”€ Mobile Viewport Adaptations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 640px) {
   .start-container {
     padding: 16px 14px 40px;
@@ -1588,7 +1588,7 @@ video {
   pointer-events: none;
 }
 
-/* ─── Saves and Skins panels ────────────────────────────────────── */
+/* â”€â”€â”€ Saves and Skins panels â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .userdata-panel {
   /* the padding lives on the summary so the whole closed card is clickable */
   --pad-y: 20px;
