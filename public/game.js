@@ -92,9 +92,9 @@ async function startGame(e) {
         await document.documentElement.requestFullscreen().catch(() => {});
     }
 
-    document.querySelector('.start-container').style.display = 'none';
-    document.querySelector('.disclaimer').style.display = 'none';
-    document.querySelector('.developed-by').style.display = 'none';
+    document.querySelector('.start-container')?.style && (document.querySelector('.start-container').style.display = 'none');
+    document.querySelector('.disclaimer')?.style && (document.querySelector('.disclaimer').style.display = 'none');
+    document.querySelector('.developed-by')?.style && (document.querySelector('.developed-by').style.display = 'none');
 
     const intro = document.querySelector('.intro');
     const introContainer = document.querySelector('.intro-container');

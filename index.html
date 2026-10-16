@@ -10,7 +10,16 @@
     <link rel="icon" type="image/webp" href="/icon.webp" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-    <meta name="theme-color" content="#05060a" />
+    <meta name="theme-color" content="#060713" />
+
+    <!-- Google Fonts for authentic Vice City typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="/src/style.css" />
   </head>
 
@@ -32,11 +41,22 @@
     data-state-scope-mode="0"
     data-state-scope-gun="0"
   >
+    <!-- Vice City Atmospheric Background Layer -->
+    <div class="vc-backdrop" aria-hidden="true">
+      <div class="vc-backdrop-img"></div>
+      <div class="vc-backdrop-vignette"></div>
+      <div class="vc-backdrop-ambient"></div>
+      <div class="vc-backdrop-grid"></div>
+      <div class="vc-backdrop-scanlines"></div>
+    </div>
+
+    <!-- Mobile Rotate Overlay -->
     <div class="rotate-overlay">
       <span class="rotate-overlay-icon">&#8635;</span>
       <span data-i18n="rotate">Rotate your device</span>
     </div>
 
+    <!-- Intro Video & In-Game Emscripten Loader -->
     <div class="intro-container" hidden>
       <video class="intro" src="/intro.mp4"></video>
 
@@ -51,97 +71,138 @@
       </div>
     </div>
 
-    <div class="lang-switcher">
-      <div class="lang-picker">
-        <svg
-          class="lang-picker-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-          <path d="M2 12h20" />
-        </svg>
-        <select
-          id="ui-lang"
-          class="lang-select"
-          aria-label="Language"
-          data-i18n-aria-label="language.label"
-        ></select>
-        <svg
-          class="lang-picker-chevron"
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </div>
-    </div>
+    <!-- Main Landing Experience -->
+    <div class="start-container">
+      <!-- Top Navigation Header -->
+      <header class="site-header">
+        <div class="header-brand">
+          <div class="brand-logo-badge">WASM</div>
+          <div class="brand-text-block">
+            <span class="brand-title">VICE CITY</span>
+            <span class="brand-sub">BROWSER EDITION</span>
+          </div>
+        </div>
 
-    <div
-      class="start-container relative z-20 mx-auto w-full max-w-[1180px] px-4 py-4"
-    >
-      <div
-        class="grid items-stretch gap-7 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]"
-      >
-        <div
-          class="rounded-[28px] border border-[rgba(159,195,255,0.16)] bg-[rgba(11,22,37,0.78)] p-[34px] text-left shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur-[20px] max-md:rounded-[22px] max-md:p-[18px]"
-        >
-          <h1
-            class="mt-[18px] mb-[10px] text-[clamp(2.4rem,5vw,4.7rem)] leading-[0.95] tracking-[-0.04em] text-[#f6fbff] max-sm:text-[2.55rem]"
-          >
-            Grand Theft Auto:<br />Vice City
-          </h1>
-          <p
-            class="mb-7 max-w-[38rem] text-left text-[1.05rem] leading-[1.7] text-[#94a7c6]"
-            data-i18n-html="intro"
-          >
-            Import your <code>game.tar.gz</code> once — it's stored locally in
-            your browser via OPFS and served by a Service Worker. No CDN, no
-            external server, no recurring downloads. After the first import it
-            works fully offline.
-          </p>
+        <div class="header-pills" aria-hidden="true">
+          <span class="spec-pill"><span class="spec-dot"></span>60 FPS Native</span>
+          <span class="spec-pill">Private OPFS</span>
+          <span class="spec-pill">100% Offline</span>
+        </div>
 
-          <div
-            id="setup-overlay"
-            class="relative rounded-[22px] border border-[rgba(159,195,255,0.16)] bg-[rgba(9,18,30,0.92)] p-[22px] text-left"
-          >
-            <div id="storage-status" class="storage-status" data-i18n="setup.checking">
-              Checking local game files…
+        <div class="lang-switcher">
+          <div class="lang-picker">
+            <svg
+              class="lang-picker-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg>
+            <select
+              id="ui-lang"
+              class="lang-select"
+              aria-label="Language"
+              data-i18n-aria-label="language.label"
+            ></select>
+            <svg
+              class="lang-picker-chevron"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Header -->
+      <section class="hero-banner">
+        <div class="hero-badge">
+          <span class="hero-badge-star">✦</span>
+          <span>WebAssembly Port · Miami 1986</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-lead">Grand Theft Auto</span>
+          <span class="hero-title-main">VICE CITY</span>
+        </h1>
+        <p class="hero-desc" data-i18n-html="intro">
+          Import your <code>game.tar.gz</code> once — it's stored locally in
+          your browser via OPFS and served by a Service Worker. No CDN, no
+          external server, no recurring downloads. After the first import it
+          works fully offline.
+        </p>
+      </section>
+
+      <!-- Main Interactive Grid -->
+      <div class="main-layout-grid">
+        <!-- Left Column: Setup & Launch Station -->
+        <div class="deck-column">
+          <!-- Setup Station Card -->
+          <div id="setup-overlay" class="deck-card setup-card">
+            <div class="card-header">
+              <div
+                id="storage-status"
+                class="storage-status"
+                data-i18n="setup.checking"
+              >
+                Checking local game files…
+              </div>
+              <h2 class="card-heading" data-i18n="setup.title">Setup</h2>
             </div>
-            <h2 class="mb-[10px] text-[1.15rem] text-[#f8fbff]" data-i18n="setup.title">Setup</h2>
-            <p class="mb-4 text-left text-[#94a7c6]" data-i18n="setup.note">
+
+            <p class="card-subtext" data-i18n="setup.note">
               The imported archive is stored locally by this browser, so you can
               come back later without reimporting unless you want to replace it.
             </p>
 
             <div class="setup-actions-panel">
-              <a id="dl-link" class="dl-btn" href="#" download data-i18n="setup.download"
-                >Download game.tar.gz</a
+              <a
+                id="dl-link"
+                class="btn btn-download dl-btn"
+                href="#"
+                download
+                data-i18n="setup.download"
               >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Download game.tar.gz</span>
+              </a>
 
-              <label class="file-picker" for="game-file-input">
-                <span class="file-picker-label" data-i18n="setup.select">Select game.tar.gz</span>
-                <span id="selected-file-name" class="file-picker-name" data-i18n="setup.noFile"
-                  >No file selected</span
-                >
+              <label class="file-picker file-dropzone" for="game-file-input">
+                <div class="file-picker-icon-wrap" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </div>
+                <div class="file-picker-details">
+                  <span class="file-picker-label" data-i18n="setup.select">Select game.tar.gz</span>
+                  <span id="selected-file-name" class="file-picker-name" data-i18n="setup.noFile">No file selected</span>
+                </div>
               </label>
+
               <input
                 type="file"
                 id="game-file-input"
@@ -155,148 +216,214 @@
                 type="button"
                 data-i18n="setup.reset"
               >
-                Reset game data
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 6h18"/>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                </svg>
+                <span>Reset game data</span>
               </button>
             </div>
 
-            <div id="setup-progress" class="mt-[14px] hidden">
+            <!-- Import Progress Bar -->
+            <div id="setup-progress" class="setup-progress hidden">
               <div class="setup-progress-head">
                 <span class="setup-progress-title" data-i18n="setup.importing">Importing game.tar.gz</span>
-                <span id="setup-progress-percent" class="setup-progress-percent"
-                  >0%</span
-                >
+                <span id="setup-progress-percent" class="setup-progress-percent">0%</span>
               </div>
-              <p id="setup-progress-label" class="mb-2.5 text-[#94a7c6]" data-i18n="setup.preparing">
+              <p id="setup-progress-label" class="setup-progress-label" data-i18n="setup.preparing">
                 Preparing&hellip;
               </p>
               <div class="prog-bar-wrap">
                 <div class="prog-bar-fill" id="setup-progress-bar"></div>
               </div>
             </div>
-            <div
-              id="setup-error"
-              class="mt-3 hidden text-[0.92rem] text-[#ff7b7b]"
-            ></div>
+
+            <div id="setup-error" class="setup-error hidden"></div>
           </div>
 
-          <div class="config-option cheats-toggle">
-            <label for="enable-cheats">
-              <span data-i18n="cheats.enable">Enable cheats</span>
-              <span class="switch">
-                <input type="checkbox" id="enable-cheats" />
-                <span class="switch-track"></span>
-              </span>
-            </label>
-          </div>
+          <!-- Quick Launch Controls -->
+          <div class="launch-strip">
+            <div class="config-option cheats-toggle">
+              <label for="enable-cheats" class="cheats-control-label">
+                <div class="cheats-meta">
+                  <span class="cheats-name" data-i18n="cheats.enable">Enable cheats</span>
+                  <span class="cheats-hint">Press F3 in-game</span>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" id="enable-cheats" />
+                  <span class="switch-track"></span>
+                </span>
+              </label>
+            </div>
 
-          <div class="click-to-play">
-            <button
-              id="click-to-play-button"
-              class="flex w-full min-h-12 items-center justify-center rounded-[14px] bg-linear-to-br from-[#82aaff] to-[#72e4c7] px-[18px] text-[1rem] font-bold text-[#07111f] transition-transform duration-200 hover:-translate-y-px"
-              data-i18n="play.start"
-            >
-              Start to play
-            </button>
-          </div>
-
-          <details id="saves-panel" class="userdata-panel">
-            <summary><h2 data-i18n="saves.title">Saves</h2></summary>
-            <p class="userdata-note" data-i18n="saves.note">
-              Import a GTA Vice City PC save (.b or .zip) into a slot. Stored in
-              this browser; make changes here before pressing Start.
-            </p>
-            <div id="saves-status" class="userdata-status" role="status" hidden></div>
-
-            <ul id="save-slot-list" class="userdata-list"></ul>
-            <input type="file" id="save-file-input" accept=".b,.zip" hidden />
-          </details>
-
-          <details id="skins-panel" class="userdata-panel">
-            <summary><h2 data-i18n="skins.title">Skins</h2></summary>
-            <p class="userdata-note" data-i18n="skins.note">
-              Change how Tommy looks. After starting the game, open Options
-              → Player Skin Setup to pick one. Skins only change his street
-              outfit, not cutscenes.
-            </p>
-            <div id="skins-status" class="userdata-status" role="status" hidden></div>
-
-            <ul id="skin-list" class="userdata-list"></ul>
-            <label id="skin-drop" class="file-picker userdata-drop" for="skin-file-input">
-              <span class="file-picker-label" data-i18n="skins.importLabel">Import skins</span>
-              <span class="file-picker-name" data-i18n="skins.dropHint"
-                >Choose or drop a .bmp, .png, .jpg or .zip file</span
+            <div class="click-to-play">
+              <button
+                id="click-to-play-button"
+                class="btn btn-primary play-button"
+                data-i18n="play.start"
               >
-            </label>
-            <input type="file" id="skin-file-input" accept=".bmp,.png,.jpg,.jpeg,.zip,image/bmp,image/png,image/jpeg,application/zip" multiple hidden />
-          </details>
+                <span class="play-btn-glow" aria-hidden="true"></span>
+                <svg class="play-btn-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span class="play-btn-label">Start to play</span>
+              </button>
+            </div>
+          </div>
 
-          <div
-            id="config-panel"
-            class="mt-[22px] hidden rounded-[18px] border border-[rgba(159,195,255,0.16)] bg-[rgba(255,255,255,0.025)] p-[18px] text-left max-md:p-[15px]"
-          >
-            <div class="my-[0.7em] text-[#edf3ff]">
-              <label
-                for="config-cheats"
-                class="flex cursor-pointer items-center gap-[0.65em]"
-              >
+          <!-- User Data Drawers (Saves & Skins) -->
+          <div class="drawers-stack">
+            <!-- Saves Drawer -->
+            <details id="saves-panel" class="deck-card userdata-panel">
+              <summary class="drawer-summary">
+                <div class="drawer-title-wrap">
+                  <svg class="drawer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                    <polyline points="7 3 7 8 15 8"/>
+                  </svg>
+                  <h2 class="drawer-heading" data-i18n="saves.title">Saves</h2>
+                </div>
+                <svg class="drawer-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="drawer-content">
+                <p class="userdata-note" data-i18n="saves.note">
+                  Import a GTA Vice City PC save (.b or .zip) into a slot. Stored in
+                  this browser; make changes here before pressing Start.
+                </p>
+                <div id="saves-status" class="userdata-status" role="status" hidden></div>
+                <ul id="save-slot-list" class="userdata-list"></ul>
+                <input type="file" id="save-file-input" accept=".b,.zip" hidden />
+              </div>
+            </details>
+
+            <!-- Skins Drawer -->
+            <details id="skins-panel" class="deck-card userdata-panel">
+              <summary class="drawer-summary">
+                <div class="drawer-title-wrap">
+                  <svg class="drawer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>
+                  </svg>
+                  <h2 class="drawer-heading" data-i18n="skins.title">Skins</h2>
+                </div>
+                <svg class="drawer-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="drawer-content">
+                <p class="userdata-note" data-i18n="skins.note">
+                  Change how Tommy looks. After starting the game, open Options
+                  → Player Skin Setup to pick one. Skins only change his street
+                  outfit, not cutscenes.
+                </p>
+                <div id="skins-status" class="userdata-status" role="status" hidden></div>
+                <ul id="skin-list" class="userdata-list"></ul>
+                <label id="skin-drop" class="file-picker userdata-drop" for="skin-file-input">
+                  <span class="file-picker-label" data-i18n="skins.importLabel">Import skins</span>
+                  <span class="file-picker-name" data-i18n="skins.dropHint">Choose or drop a .bmp, .png, .jpg or .zip file</span>
+                </label>
                 <input
-                  type="checkbox"
-                  id="config-cheats"
-                  class="h-[18px] w-[18px] accent-[#72e4c7]"
+                  type="file"
+                  id="skin-file-input"
+                  accept=".bmp,.png,.jpg,.jpeg,.zip,image/bmp,image/png,image/jpeg,application/zip"
+                  multiple
+                  hidden
                 />
+              </div>
+            </details>
+          </div>
+
+          <!-- Engine Configuration Panel (F3 Cheats, Fullscreen, FPS) -->
+          <div id="config-panel" class="deck-card config-panel hidden">
+            <div class="config-row">
+              <label for="config-cheats" class="config-label">
+                <input type="checkbox" id="config-cheats" class="accent-checkbox" />
                 <span id="config-cheats-label" data-i18n="config.cheats">Cheats (F3)</span>
               </label>
             </div>
-            <div class="my-[0.7em] text-[#edf3ff]">
-              <label
-                for="config-fullscreen"
-                class="flex cursor-pointer items-center gap-[0.65em]"
-              >
-                <input
-                  type="checkbox"
-                  id="config-fullscreen"
-                  checked
-                  class="h-[18px] w-[18px] accent-[#72e4c7]"
-                />
+            <div class="config-row">
+              <label for="config-fullscreen" class="config-label">
+                <input type="checkbox" id="config-fullscreen" checked class="accent-checkbox" />
                 <span id="config-fullscreen-label" data-i18n="config.fullscreen">Fullscreen</span>
               </label>
             </div>
-            <div class="my-[0.7em] text-[#edf3ff]">
-              <label
-                for="config-max-fps"
-                class="flex cursor-pointer items-center gap-[0.65em]"
-              >
+            <div class="config-row">
+              <label for="config-max-fps" class="config-label">
                 <span id="config-max-fps-label" data-i18n="config.maxFps">Max FPS:</span>
-                <input
-                  type="number"
-                  id="config-max-fps"
-                  min="0"
-                  max="240"
-                  value="0"
-                  class="w-[78px] rounded-xl border border-[rgba(159,195,255,0.16)] bg-[rgba(255,255,255,0.04)] px-[0.9em] py-[0.72em] text-[#edf3ff]"
-                />
+                <input type="number" id="config-max-fps" min="0" max="240" value="0" class="fps-input" />
                 <span id="config-max-fps-unlimited" data-i18n="config.unlimited">(0 = unlimited)</span>
               </label>
             </div>
           </div>
         </div>
 
-        <div
-          class="flex flex-col gap-[22px] rounded-[28px] border border-[rgba(159,195,255,0.16)] bg-[rgba(11,22,37,0.78)] p-[26px] text-left shadow-[0_28px_80px_rgba(0,0,0,0.35)] backdrop-blur-[20px] max-md:rounded-[22px] max-md:p-[18px]"
-        >
-          <div class="cover-panel">
-            <img
-              class="cover-image"
-              src="/cover.png"
-              alt="Grand Theft Auto Vice City cover"
-              data-i18n-alt="cover.alt"
-            />
+        <!-- Right Column: Intel, How to Play & Features -->
+        <div class="info-column">
+          <!-- Feature Highlights Grid -->
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon-badge">🏎️</div>
+              <div class="feature-body">
+                <h3 class="feature-title">Native C++ Engine</h3>
+                <p class="feature-desc">Compiled to WebAssembly with WebGL acceleration for rock-solid 60 FPS.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-badge">🔒</div>
+              <div class="feature-body">
+                <h3 class="feature-title">Private Local Storage</h3>
+                <p class="feature-desc">Assets unpack into OPFS on your machine. Zero cloud uploads.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-badge">✈️</div>
+              <div class="feature-body">
+                <h3 class="feature-title">100% Offline Ready</h3>
+                <p class="feature-desc">Load once via Service Worker, play anytime without internet access.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-badge">🎮</div>
+              <div class="feature-body">
+                <h3 class="feature-title">Gamepad & Touch</h3>
+                <p class="feature-desc">Seamless plug-and-play Xbox/PS controller support plus touch overlay.</p>
+              </div>
+            </div>
           </div>
 
-          <div
-            class="disclaimer rounded-[18px] border border-[rgba(159,195,255,0.16)] bg-[rgba(255,255,255,0.025)] p-[18px] text-left leading-[1.7] text-[#94a7c6] max-md:p-[15px]"
-          >
-            <span id="disclaimer-text" class="text-[#f7fbff]" data-i18n="disclaimer.label">DISCLAIMER:</span>
+          <!-- Instructions Card -->
+          <section class="deck-card instructions-panel">
+            <div class="card-header">
+              <h2 class="card-heading instructions-title" data-i18n="howto.title">How to play</h2>
+            </div>
+            <ol class="instructions-list">
+              <li data-i18n="howto.step1">
+                Download the game: press “Download game.tar.gz” and save the file on your computer. The game can’t run without it.
+              </li>
+              <li data-i18n="howto.step2">
+                Mount it: press “Select game.tar.gz” and choose the file you just downloaded.
+              </li>
+              <li data-i18n="howto.step3">
+                Wait for the import to finish until the status above says “Ready to play”.
+              </li>
+              <li data-i18n="howto.step4">
+                Press “Start to play” and wait for the game to load.
+              </li>
+              <li data-i18n="howto.step5">
+                You only need to do this once: the game stays stored in this browser and works offline.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Disclaimer Card -->
+          <div class="deck-card disclaimer">
+            <span id="disclaimer-text" class="disclaimer-title" data-i18n="disclaimer.label">DISCLAIMER:</span>
             <span class="eula">
               <span id="disclaimer-sources" data-i18n="disclaimer.text">
                 Unofficial fan project, not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. It does not include the game's data files, and you need your own legitimate copy of Grand Theft Auto: Vice City to play. All trademarks and copyrights belong to their respective owners.
@@ -304,75 +431,16 @@
             </span>
           </div>
 
-          <div
-            class="developed-by rounded-[18px] border border-[rgba(159,195,255,0.16)] bg-[rgba(255,255,255,0.025)] p-[18px] text-left leading-[1.7] text-[#94a7c6] max-md:p-[15px]"
-          >
-            <div>
-              <span data-i18n="credits.port">Browser client port by:</span>
-              <a
-                class="text-[#f6fbff]"
-                target="_blank"
-                href="https://github.com/joncodeofficial/gta-vice-city-wasm"
-                target="_blank"
-                >@joncodeofficial</a
-              >
-            </div>
-
-            <div class="mt-2">
-              <span data-i18n="credits.basedOn">Based on:</span>
-              <a
-                class="text-[#f6fbff]"
-                href="https://github.com/Lolendor/reVCDOS"
-                target="_blank"
-                >reVCDOS</a
-              >
-              <span data-i18n="credits.by">by</span>
-              <a
-                class="text-[#f6fbff]"
-                href="https://github.com/Lolendor"
-                target="_blank"
-                >@Lolendor</a
-              >
-            </div>
-
-            <div class="mt-2">
-              <span id="port-by" data-i18n="credits.engine">WASM engine by:</span>
-              <a
-                class="text-[#f6fbff]"
-                href="https://github.com/okhmanyuk-ev"
-                target="_blank"
-                >@specialist003</a
-              >,
-              <a
-                class="text-[#f6fbff]"
-                href="https://www.youtube.com/caiiiycuk"
-                target="_blank"
-                >@caiiiycuk</a
-              >,
-              <a
-                class="text-[#f6fbff]"
-                href="https://t.me/ser_var"
-                target="_blank"
-                >@SerGen</a
-              >
-            </div>
-          </div>
-
-          <section class="instructions-panel">
-            <h2 data-i18n="howto.title">How to play</h2>
-            <ol class="instructions-list">
-              <li data-i18n="howto.step1">Download the game: press “Download game.tar.gz” and save the file on your computer. The game can’t run without it.</li>
-              <li data-i18n="howto.step2">Mount it: press “Select game.tar.gz” and choose the file you just downloaded.</li>
-              <li data-i18n="howto.step3">Wait for the import to finish until the status above says “Ready to play”.</li>
-              <li data-i18n="howto.step4">Press “Start to play” and wait for the game to load.</li>
-              <li data-i18n="howto.step5">You only need to do this once: the game stays stored in this browser and works offline.</li>
-            </ol>
-          </section>
+          <!-- Hidden Compatibility Stub (Credits Removed) -->
+          <div class="developed-by" style="display: none;" aria-hidden="true"></div>
         </div>
       </div>
     </div>
+
+    <!-- Emscripten Canvas -->
     <canvas class="emscripten" id="canvas"></canvas>
 
+    <!-- Touch Controls Overlay for Mobile/Tablet -->
     <div class="touch-controls-wrapper">
       <div id="move"></div>
       <div id="look"></div>
@@ -395,6 +463,7 @@
       <div class="touch-control fireRight"></div>
       <div class="touch-control fireLeft"></div>
     </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
