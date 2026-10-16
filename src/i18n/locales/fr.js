@@ -141,12 +141,6 @@ export default {
     label: "AVERTISSEMENT :",
     text: "Projet de fans non officiel, sans lien avec Rockstar Games ou Take-Two Interactive, ni approuvé ou sponsorisé par eux. Il n’inclut pas les fichiers de données du jeu : vous avez besoin de votre propre copie légitime de Grand Theft Auto: Vice City pour jouer. Toutes les marques et tous les droits d’auteur appartiennent à leurs propriétaires respectifs.",
   },
-  credits: {
-    port: "Portage navigateur par :",
-    basedOn: "Basé sur :",
-    by: "par",
-    engine: "Moteur WASM par :",
-  },
   howto: {
     title: "Comment jouer",
     step1: "Téléchargez le jeu : appuyez sur « Télécharger game.tar.gz » et enregistrez le fichier sur votre ordinateur. Le jeu ne fonctionne pas sans lui.",

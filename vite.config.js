@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/gta-vice-city-wasm/",
+  base: process.env.BASE_URL || "./",
   server: {
     headers: {
       "Cross-Origin-Opener-Policy": "same-origin",

@@ -1,94 +1,145 @@
-# GTA: Vice City — WASM Port
+# Grand Theft Auto: Vice City — WebAssembly Edition
 
-Play GTA: Vice City right in your browser. Nothing to install: the game runs on your own device and keeps working offline.
+[![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=flat-square&logo=webassembly&logoColor=white)](https://webassembly.org/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
-[![Open in your browser](https://img.shields.io/badge/-open%20in%20your%20browser-0098d4?style=for-the-badge)](https://joncodeofficial.github.io/gta-vice-city-wasm/)
+An in-browser WebAssembly port of **Grand Theft Auto: Vice City**. The entire game runs locally on your machine via WebAssembly and WebGL hardware acceleration. Zero installation, zero cloud uploads, and fully playable offline after the first import.
 
-![GTA: Vice City running in the browser, with a custom Spider-Man skin](public/demo.webp)
+---
 
-You need the game files (`game.tar.gz`) once — see [How it works](#how-it-works).
+## Highlights
 
-## What's included
+- **Native C++ Performance**: Compiled via Emscripten and rendered through WebGL with hardware acceleration, achieving a fluid 60+ FPS in desktop and mobile browsers.
+- **Private Local Storage (OPFS)**: Game data is extracted once into your browser's Origin Private File System (OPFS). No assets are uploaded to any server or cloud service.
+- **100% Offline Capable**: A dedicated Service Worker intercepts and serves all required assets from OPFS. After the initial archive setup, you can disconnect and play anywhere.
+- **Comprehensive Controller Support**: Plug-and-play support for standard USB/Bluetooth gamepads (Xbox, PlayStation, DualSense) alongside responsive on-screen touch controls for phones and tablets.
+- **PC Save Game Management**: Built-in save manager allowing you to import, export, and manage standard PC `.b` save files and `.zip` archives across 8 game slots.
+- **Custom Player Skins**: Built-in image converter and dropzone for Tommy Vercetti skins supporting `.bmp`, `.png`, and `.jpg` files.
+- **Cheats on Demand**: Optional built-in cheats toggle accessible from the start console or via <kbd>F3</kbd> in-game.
+- **Multi-Language Support**: Full UI translation across 8 languages (English, Español, Português, Français, Deutsch, Русский, हिन्दी, 简体中文).
 
-- **Play in your browser.** Nothing to install, and your game files stay on your device.
-- **Your own saved games.** Import, export and remove PC saves.
-- **Custom skins.** Change how Tommy looks with your own images.
-- **Cheats on demand.** Off by default; switch them on from the setup screen.
-- **Touch controls.** On-screen controls for phones and tablets.
-- **Install it as an app.** Add it to your desktop or home screen from the browser.
+---
 
-## How it works
+## How It Works
 
-1. Download `game.tar.gz`
-2. Open the [live page](https://joncodeofficial.github.io/gta-vice-city-wasm/) and click **Select game.tar.gz** to import the file
-3. The archive is extracted into your browser's local storage (OPFS) — this only happens once
-4. Click **Start to play** and the game loads entirely from your device
+1. **Obtain Game Files**: Ensure you have your `game.tar.gz` archive containing the legitimate game data files.
+2. **Mount the Archive**: Click **Select game.tar.gz** on the landing page and choose your archive.
+3. **Local OPFS Extraction**: A dedicated background Web Worker decompresses and mounts the game files into your browser's high-speed local filesystem.
+4. **Launch & Play**: Once the status indicator shows **Ready to play**, click **Start to play** to begin.
 
-Your imported data persists between sessions so you only need to import once unless you clear browser storage.
+> **Note**: Your imported game data remains securely saved in your browser across sessions. You only need to import the archive once unless you choose to reset or clear your browser storage.
 
-## Saves & skins
+---
 
-Before pressing Start, you can add your own saved games and character skins from the **Saves & skins** section.
+## Game Controls
 
-### Saves
+### Keyboard & Mouse
 
-- Add a saved game downloaded for **GTA Vice City on PC**. Files named `GTAVCsf1.b` to `GTAVCsf8.b`, or a `.zip` containing one, both work.
-- Importing into a slot that already has a save replaces it.
-- You can download your saves to keep them safe.
+| Action | Key / Control |
+|---|---|
+| **Move** | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> |
+| **Look / Aim** | Mouse Movement |
+| **Sprint** | <kbd>Space</kbd> or <kbd>Shift</kbd> |
+| **Jump** | <kbd>Space</kbd> |
+| **Attack / Shoot** | <kbd>Left Click</kbd> or <kbd>Ctrl</kbd> |
+| **Enter / Exit Vehicle** | <kbd>F</kbd> or <kbd>Enter</kbd> |
+| **Handbrake** | <kbd>Space</kbd> |
+| **Cycle Weapon** | Mouse Wheel or <kbd>Q</kbd> / <kbd>E</kbd> |
+| **Camera View** | <kbd>V</kbd> |
+| **In-Game Menu** | <kbd>Esc</kbd> |
+| **Cheats Menu** | <kbd>F3</kbd> |
 
-### Skins
+### Gamepads & Touch
 
-- Add a skin as a `.bmp`, `.png`, `.jpg` or `.zip` file. It is adjusted automatically.
-- Once in game, open *Options → Player Skin Setup*, pick your skin and leave the menu to put it on.
-- Skins only change Tommy's everyday outfit.
+- **Gamepads**: Connect any Xbox, PlayStation, or generic HID gamepad. Controls map automatically to classic console layouts.
+- **Mobile & Tablet**: An on-screen virtual joystick and context-sensitive touch action buttons appear automatically on touch devices.
 
-If your download is a `.rar` or `.7z`, unpack it first. *Reset game data* also deletes your saves and skins.
+---
 
-## Requirements
+## Saves & Custom Skins
 
-- A modern desktop browser with WebAssembly + OPFS + Service Worker support
-- Recommended: Chrome 110+, Firefox 111+, or Safari 16.4+
-- The `game.tar.gz` game archive (~668 MB compressed)
+### Managing Saves
+- Compatible with original **GTA: Vice City PC** saves (`GTAVCsf1.b` through `GTAVCsf8.b`), or `.zip` archives containing them.
+- Import files directly into any of the 8 available slots from the **Saves** panel before starting the game.
+- Export slots at any time to back up your progress to your local disk.
 
-## Running locally
+### Importing Custom Skins
+- Drop any `.bmp`, `.png`, or `.jpg` character skin into the **Skins** panel.
+- Non-BMP images are automatically converted to 24-bit 256x256 BMP format.
+- In-game, open **Options → Player Skin Setup** to apply your custom outfit.
+
+---
+
+## Deployment (Cloudflare Pages)
+
+This project is optimized for deployment on **Cloudflare Pages** using **Wrangler**.
+
+### Prerequisites
+
+- Node.js 20+
+- Cloudflare account and Wrangler CLI
+
+### Setup & Local Development
 
 ```bash
-pnpm install
-pnpm dev
+# Install dependencies
+npm install
+
+# Start local development server with cross-origin headers
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-Then open `http://localhost:5173`.
+### Deploying with Wrangler
 
-## Tech stack
+```bash
+# Log in to Cloudflare (one-time setup)
+npx wrangler login
 
-- **Vite** — dev server and build tool
-- **WebAssembly** — game engine compiled from C++ via Emscripten
-- **OPFS** (Origin Private File System) — stores extracted game data locally in the browser
-- **Service Worker** — intercepts fetch requests to serve game files from OPFS
-- **Web Worker** — extracts the `.tar.gz` archive off the main thread
+# Deploy directly to Cloudflare Pages
+npm run deploy
+```
 
-## Credits
+All essential cross-origin isolation headers required for WebAssembly SharedArrayBuffer and OPFS are pre-configured in `public/_headers`:
 
-**Browser client port** (OPFS storage, Service Worker, import UI, GitHub Pages deploy):
-[@joncodeofficial](https://github.com/joncodeofficial)
+```http
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Resource-Policy: cross-origin
+```
 
-**Based on** [reVCDOS](https://github.com/Lolendor/reVCDOS) by [@Lolendor](https://github.com/Lolendor)
+---
 
-**WASM engine port** by the DOS Zone team:
-- [@specialist003](https://github.com/okhmanyuk-ev)
-- [@caiiiycuk](https://www.youtube.com/caiiiycuk)
-- [@SerGen](https://t.me/ser_var)
+## Technical Architecture
 
-The game engine is based on the open-source reverse engineering project [re3/reVC](https://github.com/SugaryHull/re3/tree/miami).
+- **WebAssembly Core**: Re-implemented game engine compiled from C++ to WebAssembly via Emscripten.
+- **OPFS (Origin Private File System)**: High-throughput, private client-side filesystem handling fast block reads and writes.
+- **Service Worker (`sw.js`)**: Intercepts runtime asset requests and serves game textures, models, audio, and binaries directly from OPFS.
+- **Background Web Worker**: Performs tar/gzip stream decompression off the main thread to ensure a smooth, unblocked UI.
+- **Vite & Modern CSS**: Modern, responsive synthwave frontend built with glassmorphism, fluid typography, and Web Interface Guidelines compliance.
+
+---
+
+## System Requirements
+
+- **Desktop Browsers**: Google Chrome 110+, Mozilla Firefox 111+, Apple Safari 16.4+, or Microsoft Edge 110+.
+- **Mobile Browsers**: Chrome for Android, Safari on iOS 16.4+.
+- **Hardware Acceleration**: Enabled WebGL / WebAssembly in browser settings.
+
+---
 
 ## License
 
-This repository's source code is licensed under the [MIT License](LICENSE).
+The browser client and tooling code in this repository is licensed under the [MIT License](LICENSE).
+
+---
 
 ## Disclaimer
 
-This is an unofficial, non-commercial fan project. It is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. "Grand Theft Auto" and "Vice City" are trademarks of their respective owners and are used here only to describe which game this software is compatible with.
+This is an unofficial, non-commercial fan project. It is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. "Grand Theft Auto", "Vice City", and all associated titles, logos, and characters are trademarks or registered trademarks of their respective owners.
 
-The source code in this repository does not include the game's data files (models, textures, audio, maps). It is built on an open-source reimplementation of the game engine, and you need your own legitimate copy of GTA: Vice City to use it. The maintainer does not authorize anyone to redistribute the game's files and is not responsible for how third parties obtain, host, or share them, nor for any consequences of unauthorized use of this project.
-
-This software is provided "as is", without warranty of any kind. See the [LICENSE](LICENSE) file for the full liability disclaimer.
+This repository does not host, distribute, or include any proprietary game assets, audio files, textures, models, or copyrighted binaries. Users must supply their own legitimate copy of Grand Theft Auto: Vice City (`game.tar.gz`) to play.

@@ -138,12 +138,6 @@ export default {
     label: "免责声明：",
     text: "非官方粉丝项目，与 Rockstar Games 或 Take-Two Interactive 无关，也未获得其认可或赞助。本项目不包含游戏数据文件，你需要拥有自己的 Grand Theft Auto: Vice City 正版副本才能游玩。所有商标和版权归其各自所有者所有。",
   },
-  credits: {
-    port: "浏览器移植：",
-    basedOn: "基于：",
-    by: "作者",
-    engine: "WASM 引擎：",
-  },
   howto: {
     title: "游玩方法",
     step1: "下载游戏：点击“下载 game.tar.gz”，把文件保存到你的电脑。没有这个文件，游戏无法运行。",

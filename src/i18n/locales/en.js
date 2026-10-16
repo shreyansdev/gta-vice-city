@@ -144,12 +144,6 @@ export default {
     label: "DISCLAIMER:",
     text: "Unofficial fan project, not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. It does not include the game's data files, and you need your own legitimate copy of Grand Theft Auto: Vice City to play. All trademarks and copyrights belong to their respective owners.",
   },
-  credits: {
-    port: "Browser client port by:",
-    basedOn: "Based on:",
-    by: "by",
-    engine: "WASM engine by:",
-  },
   howto: {
     title: "How to play",
     step1: "Download the game: press “Download game.tar.gz” and save the file on your computer. The game can’t run without it.",
