@@ -1,9 +1,12 @@
 # Grand Theft Auto: Vice City — WebAssembly Edition
 
+[![Live Website](https://img.shields.io/badge/Live_Site-Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://gta-vice-city-cg3.pages.dev/)
 [![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=flat-square&logo=webassembly&logoColor=white)](https://webassembly.org/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+
+> 🎮 **Live Access**: [**https://gta-vice-city-cg3.pages.dev/**](https://gta-vice-city-cg3.pages.dev/)
 
 An in-browser WebAssembly port of **Grand Theft Auto: Vice City**. The entire game runs locally on your machine via WebAssembly and WebGL hardware acceleration. Zero installation, zero cloud uploads, and fully playable offline after the first import.
 
@@ -73,6 +76,9 @@ An in-browser WebAssembly port of **Grand Theft Auto: Vice City**. The entire ga
 ---
 
 ## Deployment (Cloudflare Pages)
+
+The production build is deployed and accessible at:
+👉 **[https://gta-vice-city-cg3.pages.dev/](https://gta-vice-city-cg3.pages.dev/)**
 
 This project is optimized for deployment on **Cloudflare Pages** using **Wrangler**.
 
