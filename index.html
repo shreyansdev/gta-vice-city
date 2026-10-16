@@ -182,31 +182,15 @@
             <div class="setup-actions-panel">
               <a
                 id="dl-link"
-                class="btn btn-download dl-btn"
-                href="#"
+                class="dl-btn"
+                href="https://gtavc-assets-proxy.joncode.workers.dev"
                 download
                 data-i18n="setup.download"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/>
-                  <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                <span>Download game.tar.gz</span>
-              </a>
+              >Download game.tar.gz</a>
 
-              <label class="file-picker file-dropzone" for="game-file-input">
-                <div class="file-picker-icon-wrap" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="17 8 12 3 7 8"/>
-                    <line x1="12" y1="3" x2="12" y2="15"/>
-                  </svg>
-                </div>
-                <div class="file-picker-details">
-                  <span class="file-picker-label" data-i18n="setup.select">Select game.tar.gz</span>
-                  <span id="selected-file-name" class="file-picker-name" data-i18n="setup.noFile">No file selected</span>
-                </div>
+              <label class="file-picker" for="game-file-input">
+                <span class="file-picker-label" data-i18n="setup.select">Select game.tar.gz</span>
+                <span id="selected-file-name" class="file-picker-name" data-i18n="setup.noFile">No file selected</span>
               </label>
 
               <input
@@ -218,17 +202,10 @@
 
               <button
                 id="reset-game-btn"
-                class="reset-btn hidden"
+                class="reset-btn"
                 type="button"
                 data-i18n="setup.reset"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 6h18"/>
-                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                </svg>
-                <span>Reset game data</span>
-              </button>
+              >Reset game data</button>
             </div>
 
             <!-- Import Progress Bar -->

@@ -543,123 +543,158 @@ select:focus-visible {
   box-shadow: 0 0 6px #ffaa00;
 }
 
-/* â”€â”€â”€ Setup Actions Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── Setup Actions Panel ────────────────────────────────────────── */
 .setup-actions-panel {
+  counter-reset: play-step;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   transition: opacity 0.25s ease;
 }
 
-/* Download Button */
-.btn {
-  display: inline-flex;
+.setup-actions-panel .dl-btn,
+.setup-actions-panel .file-picker {
+  position: relative;
+}
+
+/* Numbered Step Badges (Step 1, Step 2) */
+.setup-actions-panel .dl-btn::before,
+.setup-actions-panel .file-picker::before {
+  counter-increment: play-step 1;
+  content: counter(play-step);
+  width: 24px;
+  height: 24px;
+  color: var(--neon-cyan);
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  background: #030912;
+  border: 1px solid rgba(0, 229, 255, 0.6);
+  border-radius: 50%;
+  place-items: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  display: grid;
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+/* Step 1: Download Button */
+.dl-btn {
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 13px 20px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px 0 46px;
   border-radius: var(--radius-btn);
+  background: linear-gradient(135deg, #00d2ff 0%, #0098d4 100%);
+  color: #030912;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dl-btn:hover {
+  filter: brightness(1.08);
+  color: #030912;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 210, 255, 0.45);
+}
+
+.dl-btn:active {
+  transform: translateY(0);
+}
+
+/* Step 2: File Picker / Dropzone */
+.file-picker {
   box-sizing: border-box;
-}
-
-.btn-download {
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 18px rgba(0, 229, 255, 0.12);
-}
-
-.btn-download:hover {
-  background: rgba(0, 229, 255, 0.18);
-  color: #fff;
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.28);
-  transform: translateY(-1px);
-}
-
-/* File Picker / Dropzone */
-.file-dropzone {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border: 2px dashed rgba(0, 229, 255, 0.3);
-  border-radius: var(--radius-inner);
-  background: rgba(0, 229, 255, 0.025);
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.file-dropzone:hover {
-  border-color: var(--neon-cyan);
-  background: rgba(0, 229, 255, 0.06);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
-}
-
-.file-picker-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(0, 229, 255, 0.1);
-  color: var(--neon-cyan);
-  flex-shrink: 0;
-}
-
-.file-picker-details {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 18px 12px 52px;
+  border-radius: var(--radius-btn);
+  background: rgba(22, 26, 38, 0.7);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.file-picker:hover {
+  border-color: var(--neon-cyan);
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(0, 210, 255, 0.35), 0 0 24px rgba(0, 210, 255, 0.25);
 }
 
 .file-picker-label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-white);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
 }
 
 .file-picker-name {
-  font-size: 0.84rem;
-  color: var(--text-muted);
+  font-size: 0.92rem;
+  color: #dbe4f0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Reset Button */
+/* Step 3: Reset Button */
 .reset-btn {
-  display: inline-flex;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 9px 16px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-btn);
   background: transparent;
-  border: 1px solid rgba(255, 71, 87, 0.3);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 107, 107, 0.35);
   color: #ff6b7b;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
   cursor: pointer;
-  align-self: flex-start;
   transition: all 0.2s ease;
 }
 
 .reset-btn:hover {
-  background: rgba(255, 71, 87, 0.12);
-  border-color: var(--danger-red);
-  color: #fff;
+  color: #ff2870;
+  background: rgba(255, 40, 112, 0.08);
+  border-color: rgba(255, 40, 112, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(255, 40, 112, 0.22);
 }
 
-.reset-btn.hidden,
+.reset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .hidden {
   display: none !important;
 }

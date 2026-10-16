@@ -8,7 +8,8 @@ import {
   t,
 } from "./i18n/index.js";
 
-const ASSET_RELEASE_URL = import.meta.env.VITE_ASSET_URL;
+const DEFAULT_ASSET_URL = "https://gtavc-assets-proxy.joncode.workers.dev";
+const ASSET_RELEASE_URL = import.meta.env.VITE_ASSET_URL || DEFAULT_ASSET_URL;
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -250,15 +251,14 @@ async function initSetupFlow() {
     return;
   }
 
-  if (ASSET_RELEASE_URL) {
+  if (downloadLink) {
     downloadLink.href = ASSET_RELEASE_URL;
-  } else {
-    // No archive URL configured for this build (VITE_ASSET_URL unset).
-    downloadLink.style.display = "none";
+    downloadLink.style.display = "flex";
   }
 
   const showError = (key, options) => {
     errorBox.style.display = "block";
+    errorBox.classList.remove("hidden");
     setText(errorBox, key, options);
   };
 
@@ -271,7 +271,6 @@ async function initSetupFlow() {
     window.__gtaGameReady = enabled;
     clickToPlayButton.disabled = !enabled;
     clickToPlayButton.classList.toggle("disabled", !enabled);
-    if (resetBtn) resetBtn.classList.toggle("hidden", !enabled);
   };
 
   if (resetBtn) {
@@ -289,7 +288,9 @@ async function initSetupFlow() {
       setStorageStatus("status.missing", "missing");
       setPlayAvailability(false);
       progress.style.display = "none";
+      progress.classList.add("hidden");
       errorBox.style.display = "none";
+      errorBox.classList.add("hidden");
       setText(selectedFileName, "setup.noFile");
       fileInput.value = "";
       resetBtn.disabled = false;
@@ -299,10 +300,12 @@ async function initSetupFlow() {
 
   const runImport = async (file) => {
     errorBox.style.display = "none";
+    errorBox.classList.add("hidden");
     document
       .querySelectorAll(".setup-actions-panel")
       .forEach((element) => (element.style.opacity = "0.5"));
     progress.style.display = "block";
+    progress.classList.remove("hidden");
     setText(progressLabel, "progress.readingFile");
     progressPercent.textContent = "0%";
     progressBar.style.width = "0%";
@@ -407,6 +410,7 @@ async function initSetupFlow() {
     setStorageStatus("status.ready", "ready");
     setPlayAvailability(true);
     progress.style.display = "none";
+    progress.classList.add("hidden");
     return;
   }
 
