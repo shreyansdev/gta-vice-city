@@ -8,7 +8,7 @@ import {
   t,
 } from "./i18n/index.js";
 
-const DEFAULT_ASSET_URL = "https://gtavc-assets-proxy.joncode.workers.dev";
+const DEFAULT_ASSET_URL = "https://gtavc-assets-proxy.shreyanssj04.workers.dev";
 const ASSET_RELEASE_URL = import.meta.env.VITE_ASSET_URL || DEFAULT_ASSET_URL;
 
 const BASE = import.meta.env.BASE_URL;
